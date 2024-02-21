@@ -1,0 +1,9 @@
+{
+  "cSpell.words": ["Firestore"],
+  "docwriter.hotkey.mac": "⌥ + .",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
+}
