@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "926802816232",
+    "project_id": "coding-setup-c63de",
+    "storage_bucket": "coding-setup-c63de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926802816232:android:b12307a6abb99d26a0ed5d",
+        "android_client_info": {
+          "package_name": "com.example.my_coding"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8pFA5NBdGRLSUkjNPj5rXoiiaGAOkwZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
