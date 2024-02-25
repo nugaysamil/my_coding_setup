@@ -15,16 +15,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>coding-setup-c63de.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:926802816232:ios:6b66a44ae733e158a0ed5d</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.926802816232-4rlhpt7n3fdmaeuikeia9r2h40kdevv0</string>
+	<key>CLIENT_ID</key>
+	<string>926802816232-4rlhpt7n3fdmaeuikeia9r2h40kdevv0.apps.googleusercontent.com</string>
 </dict>
 </plist>
