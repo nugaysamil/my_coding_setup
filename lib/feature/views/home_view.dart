@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: eol_at_end_of_file
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/firestore.dart';
 import 'package:kartal/kartal.dart';
@@ -9,7 +8,6 @@ import 'package:kartal/kartal.dart';
 import 'package:my_coding/feature/model/user.dart';
 import 'package:my_coding/feature/view_model/home_view_model.dart';
 import 'package:my_coding/feature/views/home_detail_view.dart';
-import 'package:my_coding/product/utility/enums/firestore_queries.dart';
 import 'package:my_coding/product/utility/firebase/firebase_base_model.dart';
 import 'package:my_coding/product/utility/image_constants.dart';
 import 'package:my_coding/product/utility/locale_keys.dart';
@@ -32,10 +30,19 @@ class _HomeViewState extends State<HomeView> {
           style: context.general.textTheme.titleMedium,
         ),
         actions: [
-          CircleAvatar(
-            backgroundColor: context.general.colorScheme.secondary,
-            child: Image.asset(
-              ImageConstants.icGithub,
+          InkWell(
+            onTap: () async {
+              final isAuthenticated =
+                  await homeViewModel.checkUserGithubLogin();
+                  if(isAuthenticated) {
+                    
+                  }
+            },
+            child: CircleAvatar(
+              backgroundColor: context.general.colorScheme.secondary,
+              child: Image.asset(
+                ImageConstants.icGithub,
+              ),
             ),
           ),
         ],

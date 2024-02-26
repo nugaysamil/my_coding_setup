@@ -1,8 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, unused_field, unused_element
+
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:my_coding/feature/model/index.dart';
 
-import 'package:my_coding/feature/model/user.dart';
 import 'package:my_coding/feature/views/mixin/home_detail_view_mixin.dart';
 import 'package:my_coding/product/utility/firebase/firebase_base_model.dart';
 
@@ -51,7 +52,29 @@ class _UserDetailCard extends StatelessWidget {
       children: [
         Text(
           'Computer : ${userDetail.computerName}',
-          'Operating System : ${userDetail.theme}';
+        ),
+        TextButton(
+          onPressed: () {
+            userDetail.computerUrl.ext.launchWebsite;
+          },
+          child: Text(
+            'Computer Url : ${userDetail.computerUrl}',
+            style: context.general.textTheme.bodyMedium?.copyWith(
+              color: context.general.colorScheme.secondary,
+            ),
+          ),
+        ),
+        Text(
+          'Operating System : ${userDetail.theme}',
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: userDetail.extensions?.length ?? 0,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(userDetail.extensions?[index] ?? ''),
+            );
+          },
         ),
       ],
     );

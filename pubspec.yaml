@@ -23,6 +23,8 @@ dependencies:
   cloud_firestore: ^4.15.5
   equatable: ^2.0.5
   json_annotation: ^4.8.1
+  flutter_json_view: ^1.1.4
+  firebase_auth: ^4.17.5
 
 dev_dependencies:
   flutter_test:
