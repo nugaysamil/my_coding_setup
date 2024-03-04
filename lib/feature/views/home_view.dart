@@ -32,7 +32,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
         ),
         actions: [
           _GithubLoginButton(
-            onPressed: onGithubPressed,
+            onPressed:  onGithubPressed
           ),
         ],
       ),
@@ -60,7 +60,7 @@ class _GithubLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onPressed,
+      onTap:  onPressed,
       child: CircleAvatar(
         backgroundColor: context.general.colorScheme.secondary,
         child: Image.asset(

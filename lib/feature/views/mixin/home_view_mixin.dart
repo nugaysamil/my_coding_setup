@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:my_coding/feature/view_model/index.dart';
@@ -10,6 +9,7 @@ mixin HomeViewMixin on State<HomeView> {
 
   Future<void> onGithubPressed() async {
     final isAuthenticated = await _homeViewModel.checkUserGithubLogin();
+
     if (!isAuthenticated) return;
     if (_homeViewModel.user == null) return;
     await context.route
@@ -19,10 +19,6 @@ mixin HomeViewMixin on State<HomeView> {
   @override
   void initState() {
     super.initState();
-    final user = FirebaseAuth.instance.currentUser;
-
-    if (user != null) {
-      print(user);
-    }
+ 
   }
 }

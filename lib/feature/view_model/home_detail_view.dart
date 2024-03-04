@@ -16,7 +16,9 @@ final class HomeDetailViewModel {
         .doc(user.id)
         .withConverter<BaseFirebaseModel<UserDetail>?>(
           fromFirestore: (snapshot, options) {
-            if (snapshot.data()?.isEmpty ?? true) return null;
+            final snapshotData = snapshot.data();
+
+            if (snapshotData?.isEmpty ?? true) return null;
 
             return BaseFirebaseModel(
               id: snapshot.id,

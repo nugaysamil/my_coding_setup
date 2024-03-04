@@ -10,16 +10,18 @@ final class HomeFormViewModel {
 
   final User _user;
 
-  Future<UserDetail?> checkUserBasicInformation() async {
-    final userDetailSnapshot =
+    Future<UserDetail?> checkUserBasicInformation() async {
+    final userDetailSnapShot =
         await FirebaseQueries.userDetail.reference.doc(_getUserId()).get();
 
-    if (!userDetailSnapshot.exists) return null;
-    final jsonData = userDetailSnapshot.data();
+    if (!userDetailSnapShot.exists) return null;
+    return userDetailFromJson(userDetailSnapShot.data());
+  }
+
+  UserDetail? userDetailFromJson(Map<String, dynamic>? jsonData) {
     if (jsonData == null) return null;
 
     final userDetail = UserDetail.fromJson(jsonData);
-
     return userDetail;
   }
 
