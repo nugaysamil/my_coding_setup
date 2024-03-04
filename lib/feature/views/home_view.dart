@@ -8,7 +8,7 @@ import 'package:kartal/kartal.dart';
 import 'package:my_coding/feature/model/user.dart';
 import 'package:my_coding/feature/view_model/home_view_model.dart';
 import 'package:my_coding/feature/views/home_detail_view.dart';
-import 'package:my_coding/feature/views/home_form_view.dart';
+import 'package:my_coding/feature/views/mixin/home_view_mixin.dart';
 import 'package:my_coding/product/utility/firebase/firebase_base_model.dart';
 import 'package:my_coding/product/utility/image_constants.dart';
 import 'package:my_coding/product/utility/locale_keys.dart';
@@ -20,7 +20,7 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     final homeViewModel = HomeViewModel();
@@ -31,21 +31,8 @@ class _HomeViewState extends State<HomeView> {
           style: context.general.textTheme.titleMedium,
         ),
         actions: [
-          InkWell(
-            onTap: () async {
-              final isAuthenticated =
-                  await homeViewModel.checkUserGithubLogin();
-              if (!isAuthenticated) return;
-              if (homeViewModel.user == null) return;
-              await context.route
-                  .navigateToPage(HomeFormView(user: homeViewModel.user!));
-            },
-            child: CircleAvatar(
-              backgroundColor: context.general.colorScheme.secondary,
-              child: Image.asset(
-                ImageConstants.icGithub,
-              ),
-            ),
+          _GithubLoginButton(
+            onPressed: onGithubPressed,
           ),
         ],
       ),
@@ -58,6 +45,27 @@ class _HomeViewState extends State<HomeView> {
 
           return _UserCard(mapUser: userMap, id: snapshot.id);
         },
+      ),
+    );
+  }
+}
+
+class _GithubLoginButton extends StatelessWidget {
+  const _GithubLoginButton({
+    this.onPressed,
+  });
+
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => onPressed,
+      child: CircleAvatar(
+        backgroundColor: context.general.colorScheme.secondary,
+        child: Image.asset(
+          ImageConstants.icGithub,
+        ),
       ),
     );
   }

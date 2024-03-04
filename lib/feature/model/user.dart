@@ -9,7 +9,8 @@ part 'user.g.dart';
 @immutable // ignore: undefined_identifier
 final class User with EquatableMixin {
   const User({
-    this.userName, 
+    this.githubId,
+    this.userName,
     this.githubUrl,
     this.name,
     this.photo,
@@ -22,6 +23,7 @@ final class User with EquatableMixin {
   final String? photo;
   final String? shortBio;
   final String? userName;
+  final int?  githubId;
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
@@ -34,6 +36,7 @@ final class User with EquatableMixin {
     String? photo,
     String? shortBio,
     String? userName,
+    int? githubId,
   }) {
     return User(
       githubUrl: githubUrl ?? this.githubUrl,
@@ -41,6 +44,7 @@ final class User with EquatableMixin {
       photo: photo ?? this.photo,
       userName: userName ?? this.userName,
       shortBio: shortBio ?? this.shortBio,
+      githubId: githubId ?? this.githubId,
     );
   }
 }
@@ -51,5 +55,5 @@ extension UserExtension on User {
       name == null ||
       photo == null ||
       shortBio == null ||
-      userName == null;
+      userName == null || githubId == null;
 }

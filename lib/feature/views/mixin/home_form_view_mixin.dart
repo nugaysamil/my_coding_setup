@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kartal/kartal.dart';
+import 'package:my_coding/feature/model/index.dart';
 import 'package:my_coding/feature/view_model/home_form_view_model.dart';
 import 'package:my_coding/feature/views/home_form_view.dart';
 
@@ -9,7 +10,6 @@ mixin HomeFormViewMixin on State<HomeFormView> {
   final TextEditingController _computerController = TextEditingController();
   final TextEditingController _computerUrlController = TextEditingController();
   final TextEditingController _extensionController = TextEditingController();
-  final TextEditingController _settingValueController = TextEditingController();
   final TextEditingController _themeController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -27,12 +27,28 @@ mixin HomeFormViewMixin on State<HomeFormView> {
     isButtonEnabledNotifier.value = true;
   }
 
+  void _updateControllerFromUserDetail(UserDetail userDetail) {
+    _computerController.text = userDetail.computerName ?? '';
+    _computerUrlController.text = userDetail.computerUrl ?? '';
+    _extensionController.text = userDetail.extensions?.join(',') ?? '';
+    _themeController.text = userDetail.theme ?? '';
+  }
+
   late final HomeFormViewModel _homeFormViewModel;
 
   @override
   void initState() {
     super.initState();
     _homeFormViewModel = HomeFormViewModel(widget.user);
+    _controlFirstUserDetail();
+  }
+
+  Future<void> _controlFirstUserDetail() async {
+    final userDetail = await _homeFormViewModel.checkUserBasicInformation();
+
+    if (userDetail == null) return;
+
+    _updateControllerFromUserDetail(userDetail);
   }
 
   Future<void> onSavePressed() async {
@@ -48,13 +64,13 @@ mixin HomeFormViewMixin on State<HomeFormView> {
     await context.route.pop(response);
   }
 
+
   @override
   void dispose() {
     _userNameController.dispose();
     _computerController.dispose();
     _computerUrlController.dispose();
     _extensionController.dispose();
-    _settingValueController.dispose();
     _themeController.dispose();
     super.dispose();
   }
@@ -64,7 +80,6 @@ mixin HomeFormViewMixin on State<HomeFormView> {
   TextEditingController get computerController => _computerController;
   TextEditingController get computerUrlController => _computerUrlController;
   TextEditingController get extensionController => _extensionController;
-  TextEditingController get settingValueController => _settingValueController;
   TextEditingController get themeController => _themeController;
 }
 
@@ -80,4 +95,10 @@ final class HomeFormModel {
   final String computerUrl;
   final String extension;
   final String theme;
+
+  bool get isEmpty =>
+      computerName.isEmpty ||
+      computerUrl.isEmpty ||
+      extension.isEmpty ||
+      theme.isEmpty;
 }
