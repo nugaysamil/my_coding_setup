@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:my_coding/feature/model/index.dart';
 
-import 'package:my_coding/feature/views/mixin/home_detail_view_mixin.dart';
+import 'package:my_coding/feature/views/home/mixin/home_detail_view_mixin.dart';
 import 'package:my_coding/product/utility/firebase/firebase_base_model.dart';
 
 class HomeDetailView extends StatefulWidget {

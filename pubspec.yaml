@@ -25,6 +25,8 @@ dependencies:
   flutter_json_view: ^1.1.4
   firebase_auth: ^4.17.5
   firebase_ui_firestore: ^1.6.2
+  flutter_gen_runner: ^5.4.0
+  easy_localization: ^3.0.5
 
 dev_dependencies:
   flutter_test:
@@ -39,10 +41,21 @@ dev_dependencies:
   
 
 flutter:
-
-
   uses-material-design: true
 
   assets:
-    - assets/
+
+    - assets/color/
+    - assets/images/
+    - assets/icon/
+    - assets/translations/
+
+flutter_gen:
+  output: lib/product/generation/
+  assets:
+    enabled: true
+
+  colors:
+    inputs: 
+      - assets/color/color.xml
 
