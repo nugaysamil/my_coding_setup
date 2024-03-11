@@ -22,5 +22,6 @@ enum LocaleItems {
   ];
 
   final Locale item;
+  // ignore: sort_constructors_first
   const LocaleItems(this.item);
 }
