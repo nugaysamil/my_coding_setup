@@ -37,8 +37,22 @@ class $AssetsImagesGen {
   AssetGenImage get imgCodeWelcome =>
       const AssetGenImage('assets/images/img_code_welcome.png');
 
+  /// File path: assets/images/sign_photo.png
+  AssetGenImage get signPhoto =>
+      const AssetGenImage('assets/images/sign_photo.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [imgCodeWelcome];
+  List<AssetGenImage> get values => [imgCodeWelcome, signPhoto];
+}
+
+class $AssetsTranslationsGen {
+  const $AssetsTranslationsGen();
+
+  /// File path: assets/translations/en-US.json
+  String get enUS => 'assets/translations/en-US.json';
+
+  /// List of all assets
+  List<String> get values => [enUS];
 }
 
 class Assets {
@@ -47,6 +61,7 @@ class Assets {
   static const $AssetsColorGen color = $AssetsColorGen();
   static const $AssetsIconGen icon = $AssetsIconGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 
 class AssetGenImage {

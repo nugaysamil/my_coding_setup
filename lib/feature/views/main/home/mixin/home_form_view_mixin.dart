@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:kartal/kartal.dart';
 import 'package:my_coding/feature/model/index.dart';
 import 'package:my_coding/feature/view_model/home/home_form_view_model.dart';
-import 'package:my_coding/feature/views/home/home_form_view.dart';
+import 'package:my_coding/feature/views/main/home/home_form_view.dart';
 
 mixin HomeFormViewMixin on State<HomeFormView> {
   final TextEditingController _userNameController = TextEditingController();
@@ -63,7 +63,6 @@ mixin HomeFormViewMixin on State<HomeFormView> {
     if (!mounted) return;
     await context.route.pop(response);
   }
-
 
   @override
   void dispose() {

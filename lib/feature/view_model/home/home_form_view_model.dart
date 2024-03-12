@@ -2,7 +2,7 @@
 
 import 'package:my_coding/feature/model/index.dart';
 import 'package:my_coding/feature/model/user.dart';
-import 'package:my_coding/feature/views/home/mixin/home_form_view_mixin.dart';
+import 'package:my_coding/feature/views/main/home/mixin/home_form_view_mixin.dart';
 import 'package:my_coding/product/utility/enums/firestore_queries.dart';
 
 final class HomeFormViewModel {

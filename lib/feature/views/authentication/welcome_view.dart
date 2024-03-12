@@ -4,11 +4,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
-import 'package:my_coding/feature/view_model/authentication/welcome_view_model.dart';
+
 import 'package:my_coding/feature/views/authentication/mixin/welcome_mixin.dart';
-import 'package:my_coding/feature/views/home/home_view.dart';
+
 import 'package:my_coding/product/generation/assets.gen.dart';
-import 'package:my_coding/product/utility/navigator_utility.dart';
 import 'package:my_coding/product/utility/translation/locale_keys.g.dart';
 import 'package:my_coding/product/utility/ui_general/custom_region.dart';
 import 'package:my_coding/product/widget/white_elevated_button.dart';
@@ -38,9 +37,7 @@ class WelcomeView extends StatelessWidget with IWelcomeView, WelcomeMixin {
                 ),
                 const Spacer(),
                 ElevatedButton(
-                  onPressed: () => NavigatorUtility(context).pushAndReplace(
-                    const HomeView(),
-                  ),
+                  onPressed: () => navigateToHome(context),
                   child: Center(
                     child: Text(
                       LocaleKeys.authentication_welcome_getStarted.tr(),

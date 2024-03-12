@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:my_coding/feature/view_model/home/home_view_model.dart';
-import 'package:my_coding/feature/views/home/home_form_view.dart';
-import 'package:my_coding/feature/views/home/home_view.dart';
+import 'package:my_coding/feature/views/main/home/home_form_view.dart';
+import 'package:my_coding/feature/views/main/home/home_view.dart';
 
 mixin HomeViewMixin on State<HomeView> {
   final HomeViewModel _homeViewModel = HomeViewModel();
@@ -19,6 +19,5 @@ mixin HomeViewMixin on State<HomeView> {
   @override
   void initState() {
     super.initState();
- 
   }
 }

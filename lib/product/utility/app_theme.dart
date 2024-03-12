@@ -12,6 +12,7 @@ final class AppTheme {
   late final ThemeData _themeData;
 
   ThemeData get currentTheme => _themeData.copyWith(
+        useMaterial3: true,
         tabBarTheme: const TabBarTheme(
           labelColor: ColorName.lust,
           indicatorColor: ColorName.lust,

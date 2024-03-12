@@ -7,8 +7,8 @@ import 'package:kartal/kartal.dart';
 
 import 'package:my_coding/feature/model/user.dart';
 import 'package:my_coding/feature/view_model/home/home_view_model.dart';
-import 'package:my_coding/feature/views/home/home_detail_view.dart';
-import 'package:my_coding/feature/views/home/mixin/home_view_mixin.dart';
+import 'package:my_coding/feature/views/main/home/home_detail_view.dart';
+import 'package:my_coding/feature/views/main/home/mixin/home_view_mixin.dart';
 import 'package:my_coding/product/generation/assets.gen.dart';
 import 'package:my_coding/product/utility/firebase/firebase_base_model.dart';
 import 'package:my_coding/product/utility/locale_keys.dart';
@@ -25,15 +25,6 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   Widget build(BuildContext context) {
     final homeViewModel = HomeViewModel();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          LocaleKeys.titleName,
-          style: context.general.textTheme.titleMedium,
-        ),
-        actions: [
-          _GithubLoginButton(onPressed: onGithubPressed),
-        ],
-      ),
       body: FirestoreListView<Map<String, dynamic>>(
         query: homeViewModel.usersQuery,
         itemBuilder: (context, snapshot) {

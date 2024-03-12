@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_coding/feature/model/user.dart';
 import 'package:my_coding/feature/model/user_details.dart';
 import 'package:my_coding/feature/view_model/home/home_detail_view.dart';
-import 'package:my_coding/feature/views/home/home_detail_view.dart';
+import 'package:my_coding/feature/views/main/home/home_detail_view.dart';
 
 mixin HomeDetailViewMixin on State<HomeDetailView> {
   late final HomeDetailViewModel _detailViewModel;

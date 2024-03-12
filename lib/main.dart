@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_coding/feature/views/authentication/welcome_view.dart';
+import 'package:my_coding/feature/views/main/tab/main_tab_view.dart';
 import 'package:my_coding/firebase_options.dart';
 import 'package:my_coding/product/utility/translation/translation_manager.dart';
 import 'package:my_coding/product/utility/app_theme.dart';
