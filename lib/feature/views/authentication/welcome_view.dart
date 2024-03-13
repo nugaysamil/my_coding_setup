@@ -47,7 +47,10 @@ class WelcomeView extends StatelessWidget with IWelcomeView, WelcomeMixin {
                 Padding(
                   padding: context.padding.onlyTopNormal,
                   child: WhiteElevatedButton(
-                    onPressed: () => onSignUpPressed(context),
+                    onPressed: () async {
+                      final user = await onSignUpPressed(context);
+              
+                    },
                     title:
                         LocaleKeys.authentication_welcome_withoutAccount.tr(),
                   ),

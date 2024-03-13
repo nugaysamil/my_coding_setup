@@ -2,11 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/foundation.dart';
 import 'package:my_coding/feature/model/github_profile.dart';
 import 'package:my_coding/feature/model/user.dart';
+import 'package:my_coding/product/state/user_context.dart';
 
 final class WelcomeViewModel {
 
-  
+  void saveUserToStateAndNavigate(User user, UserContext userContext) {
+    userContext.userState.setUser(user);
 
+  }
   Future<User?> signUpWithGithub() async {
     final instance = auth.FirebaseAuth.instance;
 

@@ -5,6 +5,7 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userPhotoUrl = context.read<UserContext>().userState.user.photo;
     return AppBar(
       title: const Text('Coding Setup'),
       centerTitle: false,
@@ -13,7 +14,11 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {},
           icon: const Icon(Icons.search),
         ),
-        const CircleAvatar(),
+        CircleAvatar(
+          backgroundImage: userPhotoUrl.ext.isNotNullOrNoEmpty
+              ? NetworkImage(userPhotoUrl!)
+              : null,
+        ),
       ],
     );
   }

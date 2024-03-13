@@ -11,7 +11,6 @@ import 'package:my_coding/feature/views/main/home/home_detail_view.dart';
 import 'package:my_coding/feature/views/main/home/mixin/home_view_mixin.dart';
 import 'package:my_coding/product/generation/assets.gen.dart';
 import 'package:my_coding/product/utility/firebase/firebase_base_model.dart';
-import 'package:my_coding/product/utility/locale_keys.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

@@ -2,9 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_coding/feature/model/index.dart';
 import 'package:my_coding/feature/views/authentication/welcome_view.dart';
 import 'package:my_coding/feature/views/main/tab/main_tab_view.dart';
 import 'package:my_coding/firebase_options.dart';
+import 'package:my_coding/product/state/user_context.dart';
 import 'package:my_coding/product/utility/translation/translation_manager.dart';
 import 'package:my_coding/product/utility/app_theme.dart';
 import 'package:my_coding/product/utility/ui_general/system_style.dart';
@@ -15,7 +17,14 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(TranslationManager(child: const MyApp()));
+  runApp(
+    TranslationManager(
+      child:  UserContext(
+        userState: UserState(),
+        child: const MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
